@@ -3,11 +3,11 @@ import Reset from '../Reset';
 import StopStart from '../StopStart';
 import CircleBtn from '../CircleBtn';
 import styles from './Btn.module.css';
-const Btn = ({ isStarted, handleStop, handleStart, handleReset, addCirle }) => {
+const Btn = ({ isStarted, handleStart, handleReset, addCirle }) => {
   return (
     <div className={styles.btnWrapper}>
       <StopStart
-        onClick={isStarted ? handleStop : handleStart}
+        onClick={handleStart}
         isStarted={isStarted}
       />
       <Reset onClick={handleReset} />
