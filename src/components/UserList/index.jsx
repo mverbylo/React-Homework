@@ -36,7 +36,7 @@ class UserList extends Component {
           isLike={user.isLike}
           handleLike={this.handleLike}
           handleDelete={this.handleDelete}
-        ></User>
+        />
       </li>
     ));
     return (
