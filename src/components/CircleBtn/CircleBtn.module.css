@@ -1,0 +1,8 @@
+.circleBtn {
+  background-color: #ffffff;
+  width: 100px;
+  height: 100px;
+  border: rgb(229, 3, 3) solid 10px;
+  border-radius: 50px;
+  margin: 10px;
+}

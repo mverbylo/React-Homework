@@ -1,0 +1,14 @@
+.redBtn,
+.greenBtn {
+  width: 100px;
+  height: 100px;
+  border: rgb(229, 3, 3) solid 10px;
+  border-radius: 50px;
+  margin: 10px;
+}
+.redBtn {
+  background-color: rgb(101, 0, 20);
+}
+.greenBtn {
+  background-color: rgb(77, 129, 0);
+}

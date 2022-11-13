@@ -1,0 +1,13 @@
+.wrapper {
+  border: rgb(229, 3, 3) solid 10px;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.time {
+  font-size: 3rem;
+}
