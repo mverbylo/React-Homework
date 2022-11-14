@@ -7,17 +7,17 @@
 .greenBtn {
   width: 100px;
   height: 100px;
-  border: rgb(229, 3, 3) solid 10px;
+  border: #f28157 solid 10px;
   border-radius: 50px;
   margin: 10px;
 }
 .whiteBtn {
   background-color: #ffffff;
-  color: #2f3554;
+  color: #253659;
 }
 .redBtn {
-  background-color: rgb(101, 0, 20);
+  background-color: #771d15;
 }
 .greenBtn {
-  background-color: rgb(77, 129, 0);
+  background-color: #03a696;
 }
