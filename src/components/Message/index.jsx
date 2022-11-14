@@ -6,8 +6,7 @@ class Message extends Component {
   };
 
   handleRead = () => {
-    const { isRead } = this / this.state;
-    this.setState({ isRead: !isRead });
+    this.setState({ isRead: !this.state.isRead });
   };
   render() {
     const { author, text } = this.props;
