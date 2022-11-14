@@ -3,12 +3,6 @@ import React from 'react';
 import styles from './Btn.module.css';
 const BtnDiv = ({ isStarted, handleStart, handleReset, addCirle }) => {
   const { btnWrapper, redBtn, greenBtn, whiteBtn } = styles;
-  const img = (
-    <img
-      alt="circle"
-      src="https://cdn0.iconfinder.com/data/icons/arrows-03/100/arrows-55-512.png"
-    />
-  );
   const dataBtn = [
     {
       id: 1,
@@ -26,7 +20,12 @@ const BtnDiv = ({ isStarted, handleStart, handleReset, addCirle }) => {
       id: 2,
       className: whiteBtn,
       onClick: addCirle,
-      text: img,
+      text: (
+        <img
+          alt="circle"
+          src="https://cdn0.iconfinder.com/data/icons/arrows-03/100/arrows-55-512.png"
+        />
+      ),
     },
   ];
   const btns = dataBtn.map(({ id, className, onClick, text }) => (
