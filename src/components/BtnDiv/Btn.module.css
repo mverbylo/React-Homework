@@ -1,3 +1,8 @@
+.btnWrapper {
+  display: flex;
+  justify-content: center;
+}
+.whiteBtn,
 .redBtn,
 .greenBtn {
   width: 100px;
@@ -5,6 +10,10 @@
   border: rgb(229, 3, 3) solid 10px;
   border-radius: 50px;
   margin: 10px;
+}
+.whiteBtn {
+  background-color: #ffffff;
+  color: #2f3554;
 }
 .redBtn {
   background-color: rgb(101, 0, 20);

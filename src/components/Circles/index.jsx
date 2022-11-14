@@ -1,5 +1,5 @@
 import React from 'react';
-import style from "./Circles.module.css"
+import style from './Circles.module.css';
 const Circles = ({ cirles }) => {
   const list = cirles.map((circl) => (
     <li id={circl.numberCirle}>

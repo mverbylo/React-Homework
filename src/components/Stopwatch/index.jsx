@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Btn from '../Btn';
+import BtnDiv from '../BtnDiv';
 import Time from '../Time';
 import Circles from '../Circles';
 import styles from './Stopwach.module.css';
@@ -62,7 +62,7 @@ class Stopwatch extends Component {
       <article className={styles.component}>
         <h1 className={styles.headering}>Stopwatch</h1>
         <Time number={this.looklikeTime(number)} />
-        <Btn
+        <BtnDiv
           isStarted={isStarted}
           addCirle={() => this.addCirle(this.looklikeTime(number))}
           handleReset={this.handleReset}
