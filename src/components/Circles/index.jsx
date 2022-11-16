@@ -1,9 +1,9 @@
 import React from 'react';
 import style from './Circles.module.css';
 const Circles = ({ cirles }) => {
-  const list = cirles.map((circl) => (
-    <li id={circl.numberCirle}>
-      Circle {circl.numberCirle}: {circl.time}
+  const list = cirles.map(({numberCirle, time}) => (
+    <li id={numberCirle}>
+      Circle {numberCirle}: {time}
     </li>
   ));
   return (

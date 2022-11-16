@@ -3,13 +3,13 @@ import BtnDiv from '../BtnDiv';
 import Time from '../Time';
 import Circles from '../Circles';
 import styles from './Stopwach.module.css';
-
+const initialState = {
+  isStarted: false,
+  cirles: [],
+  number: { h: 0, m: 0, s: 0 },
+};
 class Stopwatch extends Component {
-  state = {
-    isStarted: false,
-    cirles: [],
-    number: { h: 0, m: 0, s: 0 },
-  };
+  state = { ...initialState };
   addNumber = () => {
     const { h, m, s } = this.state.number;
     let newNumber = this.state.number;
