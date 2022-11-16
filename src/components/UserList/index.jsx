@@ -26,13 +26,10 @@ class UserList extends Component {
     });
   };
   render() {
-    const list = this.state.users.map(({ id, name, lastname, isLike }) => (
-      <li key={id}>
+    const list = this.state.users.map((user) => (
+      <li key={user.id}>
         <User
-          id={id}
-          name={name}
-          lastname={lastname}
-          isLike={isLike}
+          {...user}
           handleLike={this.handleLike}
           handleDelete={this.handleDelete}
         />
