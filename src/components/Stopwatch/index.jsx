@@ -31,11 +31,15 @@ class Stopwatch extends Component {
   looklikeTime = ({ h, m, s }) =>
     `${h < 10 ? `0${h}` : h}:${m < 10 ? `0${m}` : m}:${s < 10 ? `0${s}` : s}`;
 
-  handleStart = () => {
+  handleStartStop = () => {
     this.setState({ isStarted: !this.state.isStarted });
   };
   handleReset = () => {
-    this.setState({ number: { h: 0, m: 0, s: 0 }, isStarted: false });
+    this.setState({
+      isStarted: false,
+      cirles: [],
+      number: { h: 0, m: 0, s: 0 },
+    });
   };
   addCirle = (time) => {
     const newCircles = this.state.cirles;
@@ -46,7 +50,7 @@ class Stopwatch extends Component {
     this.setState({ cirles: newCircles });
   };
   componentDidMount() {
-    this.handleStart();
+    this.handleStartStop();
   }
   componentDidUpdate() {
     if (this.state.isStarted) {
@@ -66,7 +70,7 @@ class Stopwatch extends Component {
           isStarted={isStarted}
           addCirle={() => this.addCirle(this.looklikeTime(number))}
           handleReset={this.handleReset}
-          handleStart={this.handleStart}
+          handleStartStop={this.handleStartStop}
         />
         {cirles.length === 0 || <Circles cirles={cirles} />}
       </article>

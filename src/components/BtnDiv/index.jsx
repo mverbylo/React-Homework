@@ -1,13 +1,13 @@
 import React from 'react';
 
 import styles from './Btn.module.css';
-const BtnDiv = ({ isStarted, handleStart, handleReset, addCirle }) => {
+const BtnDiv = ({ isStarted, handleStartStop, handleReset, addCirle }) => {
   const { btnWrapper, redBtn, greenBtn, whiteBtn } = styles;
   const dataBtn = [
     {
       id: 1,
       className: isStarted ? redBtn : greenBtn,
-      onClick: handleStart,
+      onClick: handleStartStop,
       text: isStarted ? 'Stop' : 'Start',
     },
     {
