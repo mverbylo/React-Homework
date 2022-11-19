@@ -31,9 +31,16 @@ class Stopwatch extends Component {
   looklikeTime = ({ h, m, s }) =>
     `${h < 10 ? `0${h}` : h}:${m < 10 ? `0${m}` : m}:${s < 10 ? `0${s}` : s}`;
 
-  handleStartStop = () => {
+  handleStart = () => {
     this.setState({ isStarted: !this.state.isStarted });
+    if (this.id2) clearInterval(this.id2);
+    this.id2 = setInterval(this.addNumber, 1000);
   };
+  handleStop = () => {
+    this.setState({ isStarted: !this.state.isStarted });
+     clearInterval(this.id2);
+  };
+
   handleReset = () => {
     this.setState({
       isStarted: false,
@@ -50,16 +57,21 @@ class Stopwatch extends Component {
     this.setState({ cirles: newCircles });
   };
   componentDidMount() {
-    this.handleStartStop();
+    this.handleStart();
   }
   componentDidUpdate() {
-    if (this.state.isStarted) {
-      if (this.id2) clearInterval(this.id2);
-      this.id2 = setInterval(() => this.addNumber(), 1000);
-    } else {
-      clearInterval(this.id2);
-    }
+    // if (this.state.isStarted) {
+    //   if (this.id2) clearInterval(this.id2);
+    //   this.id2 = setInterval(() => this.addNumber(), 1000);
+    // } else {
+    //   clearInterval(this.id2);
+    // }
   }
+
+  componentWillUnmount() {
+    clearInterval(this.id2);
+  }
+
   render() {
     const { number, isStarted, cirles } = this.state;
     return (
@@ -70,7 +82,8 @@ class Stopwatch extends Component {
           isStarted={isStarted}
           addCirle={() => this.addCirle(this.looklikeTime(number))}
           handleReset={this.handleReset}
-          handleStartStop={this.handleStartStop}
+          handleStart={this.handleStart}
+          handleStop={this.handleStop}
         />
         {cirles.length === 0 || <Circles cirles={cirles} />}
       </article>

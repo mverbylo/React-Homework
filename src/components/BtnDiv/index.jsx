@@ -1,26 +1,32 @@
 import React from 'react';
 
 import styles from './Btn.module.css';
-const BtnDiv = ({ isStarted, handleStartStop, handleReset, addCirle }) => {
+const BtnDiv = ({
+  isStarted,
+  handleStart,
+  handleStop,
+  handleReset,
+  addCirle,
+}) => {
   const { btnWrapper, redBtn, greenBtn, whiteBtn } = styles;
   const dataBtn = [
     {
       id: 1,
       className: isStarted ? redBtn : greenBtn,
-      onClick: handleStartStop,
-      text: isStarted ? 'Stop' : 'Start',
+      onClick: isStarted ? handleStop : handleStart,
+      content: isStarted ? 'Stop' : 'Start',
     },
     {
       id: 2,
       className: whiteBtn,
       onClick: handleReset,
-      text: 'Reset',
+      content: 'Reset',
     },
     {
-      id: 2,
+      id: 3,
       className: whiteBtn,
       onClick: addCirle,
-      text: (
+      content: (
         <img
           alt="circle"
           src="https://cdn0.iconfinder.com/data/icons/arrows-03/100/arrows-55-512.png"
@@ -28,12 +34,12 @@ const BtnDiv = ({ isStarted, handleStartStop, handleReset, addCirle }) => {
       ),
     },
   ];
-  const btns = dataBtn.map(({ id, className, onClick, text }) => (
+  const btns = dataBtn.map(({ id, className, onClick, content }) => (
     <button key={id} className={className} onClick={onClick}>
-      {text}
+      {content}
     </button>
   ));
-  return <div className={btnWrapper}>{btns}</div>;
+  return <ul className={btnWrapper}>{btns}</ul>;
 };
 
 export default BtnDiv;
