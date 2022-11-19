@@ -30,7 +30,6 @@ class Stopwatch extends Component {
   };
   looklikeTime = ({ h, m, s }) =>
     `${h < 10 ? `0${h}` : h}:${m < 10 ? `0${m}` : m}:${s < 10 ? `0${s}` : s}`;
-
   handleStart = () => {
     this.setState({ isStarted: !this.state.isStarted });
     if (this.id2) clearInterval(this.id2);
@@ -38,9 +37,8 @@ class Stopwatch extends Component {
   };
   handleStop = () => {
     this.setState({ isStarted: !this.state.isStarted });
-     clearInterval(this.id2);
+    clearInterval(this.id2);
   };
-
   handleReset = () => {
     this.setState({
       isStarted: false,
@@ -59,19 +57,9 @@ class Stopwatch extends Component {
   componentDidMount() {
     this.handleStart();
   }
-  componentDidUpdate() {
-    // if (this.state.isStarted) {
-    //   if (this.id2) clearInterval(this.id2);
-    //   this.id2 = setInterval(() => this.addNumber(), 1000);
-    // } else {
-    //   clearInterval(this.id2);
-    // }
-  }
-
   componentWillUnmount() {
     clearInterval(this.id2);
   }
-
   render() {
     const { number, isStarted, cirles } = this.state;
     return (
