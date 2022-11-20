@@ -1,0 +1,4 @@
+@import '../../common/style/commonStyle.scss';
+.smText {
+  @extend %smallText;
+}

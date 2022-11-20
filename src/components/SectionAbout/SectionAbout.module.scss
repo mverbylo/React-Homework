@@ -1,0 +1,18 @@
+@import '../../common/style/variables';
+@import '../../common/style/commonStyle.scss';
+.section {
+  background-color: $basic-color;
+  color: $bckg-color;
+  width: 90%;
+  margin: 10px auto;
+  padding: 20px;
+  border-radius: 10px;
+
+}
+.headering {
+  @extend %headering;
+  text-align: center;
+}
+.text {
+  text-align: justify;
+}

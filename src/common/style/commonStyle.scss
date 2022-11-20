@@ -1,0 +1,21 @@
+%inpt {
+  border: 1px solid;
+  background-color: #ffffff;
+  padding: 22px;
+  color: #9ca8b7;
+  border-radius: 4px;
+  outline: none;
+  min-width: max-content;
+}
+%smallText {
+  font-size: 13px;
+}
+%form {
+  display: flex;
+  width: 70%;
+}
+%headering {
+  font-weight: bold;
+  font-size: 30px;
+  margin: 10px;
+}

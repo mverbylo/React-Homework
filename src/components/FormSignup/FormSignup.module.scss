@@ -1,0 +1,22 @@
+@import '../../common/style/variables';
+@import '../../common/style/commonStyle.scss';
+.form {
+  @extend %form;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.input {
+  @extend %inpt;
+  margin: 1%;
+  width: 48%;
+}
+.smText {
+@extend %smallText
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 10px;
+}

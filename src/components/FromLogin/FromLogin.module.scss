@@ -1,0 +1,18 @@
+@import '../../common/style/commonStyle.scss';
+.form {
+ @extend %form;
+  flex-direction: column;
+}
+.input {
+  @extend %inpt;
+  margin: 10px;
+  width: 100%;
+}
+.smText {
+  @extend %smallText;
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
