@@ -1,15 +1,9 @@
 import React from 'react';
 import style from './Checkbox.module.scss';
-const Checkbox = ({ content, onChange, checked, name }) => {
+const Checkbox = ({ content, ...otherProps }) => {
   return (
     <label className={style.smText}>
-      <input
-        type="checkbox"
-        checked={checked}
-        name={name}
-        onChange={onChange}
-        required
-      />
+      <input type="checkbox" {...otherProps} required />
       {content}
     </label>
   );

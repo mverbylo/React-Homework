@@ -9,11 +9,12 @@ import login from '../../functions/login';
 import Btn from '../Btn';
 import Checkbox from '../Checkbox';
 
-const { form, input, smText, wrapper } = styles;
+const { form, input, wrapper } = styles;
 const initialState = {
   email: '',
   password: '',
   isRememberMe: false,
+  type: 'password',
 };
 
 class FromLogin extends Component {
@@ -31,7 +32,7 @@ class FromLogin extends Component {
   };
 
   render() {
-    const { email, password, isRememberMe } = this.state;
+    const { email, password, isRememberMe, type } = this.state;
     const inputData = [
       {
         name: 'email',
@@ -42,17 +43,25 @@ class FromLogin extends Component {
       },
       {
         name: 'password',
-        type: 'password',
+        type: type,
         value: password,
         placeholder: 'Password',
         pattern:
           '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$',
       },
     ];
-
+    const showHidePassword = () => {
+      const { type } = this.state;
+      if (type === 'password') {
+        this.setState({ type: 'text' });
+      } else {
+        this.setState({ type: 'password' });
+      }
+    };
     return (
       <form className={form} onSubmit={this.submitHandler}>
         {createInput(inputData, input, this.handleChange)}
+
         <div className={wrapper}>
           <Checkbox
             content="Remember Me"
@@ -60,9 +69,10 @@ class FromLogin extends Component {
             checked={isRememberMe}
             name="isRememberMe"
           />
-          <Link className={smText} to="/">
-            Forgot Password
-          </Link>
+          <button onClick={showHidePassword}>
+            {type === 'password' ? 'Show' : 'Hide'} password
+          </button>
+          <Link to="/">Forgot Password</Link>
         </div>
         <Btn content="LOGIN" />
       </form>
