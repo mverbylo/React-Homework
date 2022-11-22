@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Circles.module.css';
 const Circles = ({ cirles }) => {
   const list = cirles.map(({ numberCirle, time }) => (
-    <li id={numberCirle}>
+    <li key={numberCirle}>
       Circle {numberCirle}: {time}
     </li>
   ));

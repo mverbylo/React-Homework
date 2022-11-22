@@ -3,13 +3,9 @@ import BtnDiv from '../BtnDiv';
 import Time from '../Time';
 import Circles from '../Circles';
 import styles from './Stopwach.module.css';
-const initialState = {
-  isStarted: false,
-  cirles: [],
-  number: { h: 0, m: 0, s: 0 },
-};
+
 class Stopwatch extends Component {
-  state = { ...initialState };
+  state = { isStarted: false, cirles: [], number: { h: 0, m: 0, s: 0 } };
   addNumber = () => {
     const { h, m, s } = this.state.number;
     let newNumber = this.state.number;
@@ -28,16 +24,16 @@ class Stopwatch extends Component {
       number: newNumber,
     });
   };
-  looklikeTime = ({ h, m, s }) =>
+  lookLikeTime = ({ h, m, s }) =>
     `${h < 10 ? `0${h}` : h}:${m < 10 ? `0${m}` : m}:${s < 10 ? `0${s}` : s}`;
   handleStart = () => {
     this.setState({ isStarted: !this.state.isStarted });
-    if (this.id2) clearInterval(this.id2);
-    this.id2 = setInterval(this.addNumber, 1000);
+    if (this.id) clearInterval(this.id);
+    this.id = setInterval(this.addNumber, 1000);
   };
   handleStop = () => {
     this.setState({ isStarted: !this.state.isStarted });
-    clearInterval(this.id2);
+    clearInterval(this.id);
   };
   handleReset = () => {
     this.setState({
@@ -58,22 +54,22 @@ class Stopwatch extends Component {
     this.handleStart();
   }
   componentWillUnmount() {
-    clearInterval(this.id2);
+    clearInterval(this.id);
   }
   render() {
     const { number, isStarted, cirles } = this.state;
     return (
       <article className={styles.component}>
         <h1 className={styles.headering}>Stopwatch</h1>
-        <Time number={this.looklikeTime(number)} />
+        <Time number={this.lookLikeTime(number)} />
         <BtnDiv
           isStarted={isStarted}
-          addCirle={() => this.addCirle(this.looklikeTime(number))}
+          addCirle={() => this.addCirle(this.lookLikeTime(number))}
           handleReset={this.handleReset}
           handleStart={this.handleStart}
           handleStop={this.handleStop}
         />
-        {cirles.length === 0 || <Circles cirles={cirles} />}
+        {!!cirles.length && <Circles cirles={cirles} />}
       </article>
     );
   }
