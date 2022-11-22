@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BtnDiv from '../BtnDiv';
+import BtnDiv from '../Btn';
 import Time from '../Time';
 import Circles from '../Circles';
 import styles from './Stopwach.module.css';

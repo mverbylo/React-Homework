@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from './Btn.module.css';
-const BtnDiv = ({
+const Btn = ({
   isStarted,
   handleStart,
   handleStop,
@@ -39,7 +39,7 @@ const BtnDiv = ({
       {content}
     </button>
   ));
-  return <ul className={btnWrapper}>{btns}</ul>;
+  return <div className={btnWrapper}>{btns}</div>;
 };
 
-export default BtnDiv;
+export default Btn;
