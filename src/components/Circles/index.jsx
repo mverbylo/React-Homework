@@ -7,10 +7,10 @@ const Circles = ({ cirles }) => {
     </li>
   ));
   return (
-    <ul className={style.circle}>
+    <article>
       <h2>Circles:</h2>
-      {list}
-    </ul>
+      <ul className={style.circle}>{list}</ul>
+    </article>
   );
 };
 export default Circles;
