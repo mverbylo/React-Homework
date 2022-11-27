@@ -1,7 +1,7 @@
 import './App.css';
-
+import Clicker from './Clicker';
 function App() {
-  return <></>;
+  return <Clicker />;
 }
 
 export default App;
