@@ -2,8 +2,8 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 const Clicker = () => {
   const [num, setNum] = useState(0);
-  const [step, setStep] = useState('5');
-  const [frequency, setFrequency] = useState('1000');
+  const [step, setStep] = useState(5);
+  const [frequency, setFrequency] = useState(1000);
   const [intervalId, setIntervalId] = useState(null);
 
   useEffect(() => autoClick(), []);
@@ -14,18 +14,16 @@ const Clicker = () => {
 
   const handleStepFrequency = (e) => {
     const { value, name } = e.target;
-    if (typeof value === 'number' || value === '-' || !isNaN(value)) {
-      if (name === 'step') setStep(value);
-      if (name === 'frequency') setFrequency(value);
+    if (value === '-' || !isNaN(value)) {
+      if (name === 'step') setStep(+value);
+      if (name === 'frequency') setFrequency(+value);
     }
   };
 
-  let textBtn;
-  if (step === 0 || step.trim(' ') === '' || step === '-') {
-    textBtn = `Enter step and click here`;
-  } else {
-    textBtn = `Click ${step > 0 ? `plus` : `minus`} ${Math.abs(step)}`;
-  }
+  const textBtn =
+    step === 0 || step === '-'
+      ? `Enter step and click here`
+      : `Click ${step > 0 ? `plus` : `minus`} ${Math.abs(step)}`;
 
   const autoClick = () => {
     if (intervalId) {
