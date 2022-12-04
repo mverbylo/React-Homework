@@ -9,9 +9,13 @@ export function reducer(state, action) {
     case ONCHANGE:
       return { ...state, task: action.payload };
     case ADD_TASK: {
-      const newTaskList = state.taskList;
-      newTaskList.push({ id: v4(), text: action.payload, isChecked: false });
-      return { task: '', taskList: newTaskList };
+      return {
+        task: '',
+        taskList: [
+          ...state.taskList,
+          { id: v4(), text: action.payload, isChecked: false },
+        ],
+      };
     }
     case DELETE_TASK:
       return {
