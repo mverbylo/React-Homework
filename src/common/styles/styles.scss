@@ -1,0 +1,21 @@
+$white-color: antiquewhite;
+$accent-color: dodgerblue;
+$light-accent-color: lightblue;
+$check-color: lawngreen;
+$hover-accent-color: blue;
+
+%borderRadius-padding {
+  border-radius: 5px;
+  padding: 10px;
+}
+%space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+%list {
+  @extend %borderRadius-padding;
+  @extend %space-between;
+  margin-bottom: 10px;
+  align-items: center;
+}
