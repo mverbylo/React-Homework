@@ -1,18 +1,16 @@
 import './App.css';
-import { Switch, Route } from 'react-router-dom';
-import LoginPage from './pages/LoginPage/LoginPage';
-import SignupPage from './pages/SignupPage/SignupPage';
+import Header from './components/Header';
+import Section from './components/Section';
 
 function App() {
   return (
     <>
-      <Switch>
-        <Route path="/signup" exact component={SignupPage} />
-        <Route path="/" exact component={LoginPage} />
-      </Switch>
-      <footer className='footer'>
-        <p>Copywright 2020 Bella Onojie.com</p>
-      </footer>
+      <Header />
+      <Section />
+      <footer
+        className="footer"
+        children={<p>Copywright 2020 Bella Onojie.com</p>}
+      />
     </>
   );
 }
