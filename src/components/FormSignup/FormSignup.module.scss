@@ -6,9 +6,9 @@
   justify-content: center;
 }
 .input {
-  @extend %inpt;
-  margin: 1%;
-  width: 48%;
+  @extend %input;
+  margin: 10px;
+  width: 60%;
 }
 .wrapper {
   display: flex;
@@ -16,5 +16,27 @@
   align-items: center;
   width: 100%;
   margin: 10px;
-  @extend %smallText
+  @extend %smallText;
+}
+.error {
+  font-size: 10px;
+  margin: 2px 10px;
+  @extend %error;
+}
+
+.label {
+  border: 1px solid;
+  padding: 15px;
+  margin: 15px;
+  width: 100%;
+}
+.bigText {
+  font-size: 20px;
+  margin-left: 20px;
+}
+.smText {
+  font-size: 12px;
+}
+.positionAbsolute {
+  position: absolute;
 }

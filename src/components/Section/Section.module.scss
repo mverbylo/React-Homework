@@ -5,8 +5,8 @@
   justify-content: center;
   align-items: center;
 }
-.headering {
-  @extend %headering;
+.heading {
+  @extend %heading;
 }
 .text {
   font-weight: bold;

@@ -1,4 +1,4 @@
-%inpt {
+%input {
   border: 1px solid;
   background-color: #ffffff;
   padding: 22px;
@@ -14,8 +14,13 @@
   display: flex;
   width: 70%;
 }
-%headering {
+%heading {
   font-weight: bold;
   font-size: 30px;
   margin: 10px;
+}
+%error{
+  background-color: red;
+  padding: 10px;
+  font-weight: bold;
 }

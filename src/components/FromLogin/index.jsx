@@ -1,83 +1,42 @@
-import React, { Component } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
-import styles from './FromLogin.module.scss';
-
-import createInput from '../../functions/createInput';
-import login from '../../functions/login';
-
+import { Formik, Form, Field } from 'formik';
+import { LOGIN_SCHEMA } from '../../utils/validators';
+import { login, createInput, inputDataLogin } from '../../utils/functions';
 import Btn from '../Btn';
-import Checkbox from '../Checkbox';
+import { initialStateLogin } from '../../utils/initialState';
+import styles from './FromLogin.module.scss';
+const { form, input, wrapper, error } = styles;
 
-const { form, input, wrapper } = styles;
-const initialState = {
-  email: '',
-  password: '',
-  isRememberMe: false,
-  type: 'password',
-};
-
-class FromLogin extends Component {
-  state = {
-    ...initialState,
-  };
-  submitHandler = (e) => {
-    e.preventDefault();
-    login(this.state);
-    this.setState({ ...initialState });
-  };
-  handleChange = (e) => {
-    const { value, name, type, checked } = e.target;
-    this.setState({ [name]: type === 'checkbox' ? checked : value });
-  };
-
-  render() {
-    const { email, password, isRememberMe, type } = this.state;
-    const inputData = [
-      {
-        name: 'email',
-        type: 'email',
-        value: email,
-        placeholder: 'Email address',
-        pattern: '[^@ \t\r\n]+@[^@ \t\r\n]+.[^@ \t\r\n]+',
-      },
-      {
-        name: 'password',
-        type: type,
-        value: password,
-        placeholder: 'Password',
-        pattern:
-          '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$',
-      },
-    ];
-    const showHidePassword = () => {
-      const { type } = this.state;
-      if (type === 'password') {
-        this.setState({ type: 'text' });
-      } else {
-        this.setState({ type: 'password' });
-      }
-    };
-    return (
-      <form className={form} onSubmit={this.submitHandler}>
-        {createInput(inputData, input, this.handleChange)}
-
+const FromLogin = () => {
+  const [type, setType] = useState('password');
+  const showHighPassword = () =>
+    type === 'password' ? setType('text') : setType('password');
+  return (
+    <Formik
+      initialValues={initialStateLogin}
+      onSubmit={(values, formikBag) => {
+        login(values);
+        formikBag.resetForm();
+      }}
+      validationSchema={LOGIN_SCHEMA}
+    >
+      <Form className={form}>
+        {createInput(inputDataLogin(type), input, error)}
         <div className={wrapper}>
-          <Checkbox
-            content="Remember Me"
-            onChange={this.handleChange}
-            checked={isRememberMe}
-            name="isRememberMe"
-          />
-          <button onClick={showHidePassword}>
+          <label>
+            <Field type="checkbox" name="isRememberMe" />
+            Remember Me
+          </label>
+          <button onClick={showHighPassword} type="button">
             {type === 'password' ? 'Show' : 'Hide'} password
           </button>
           <Link to="/">Forgot Password</Link>
         </div>
         <Btn content="LOGIN" />
-      </form>
-    );
-  }
-}
+      </Form>
+    </Formik>
+  );
+};
 
 export default FromLogin;

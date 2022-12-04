@@ -1,10 +1,10 @@
 @import '../../common/style/commonStyle.scss';
 .form {
- @extend %form;
+  @extend %form;
   flex-direction: column;
 }
 .input {
-  @extend %inpt;
+  @extend %input;
   margin: 10px;
   width: 100%;
 }
@@ -13,4 +13,9 @@
   justify-content: space-between;
   margin: 10px;
   @extend %smallText;
+}
+.error {
+  @extend %error;
+  margin: 10px;
+  width: 100%;
 }
