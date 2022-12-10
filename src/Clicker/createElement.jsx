@@ -1,11 +1,10 @@
+import Btn from './Btn';
+import Input from './Input';
 export const createInput = (inputData) => {
   return (
     <div>
-      {inputData.map(({ text, name, value, onChange }) => (
-        <label key={name}>
-          {text}{' '}
-          <input type="number" name={name} value={value} onChange={onChange} />
-        </label>
+      {inputData.map((data) => (
+        <Input {...data} />
       ))}
     </div>
   );
@@ -14,8 +13,8 @@ export const createInput = (inputData) => {
 export const createBtn = (btnData) => {
   return (
     <div>
-      {btnData.map(({ text, onClick }) => (
-        <button onClick={onClick}>{text}</button>
+      {btnData.map((data) => (
+        <Btn {...data} />
       ))}
     </div>
   );

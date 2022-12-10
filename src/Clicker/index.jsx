@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState, useEffect } from 'react';
 import { createInput, createBtn } from './createElement';
 const Clicker = () => {
