@@ -1,12 +1,15 @@
 import { useReducer } from 'react';
 import { reducer, initialState } from './reducer';
 import { onChange, addTask } from './actionCreators';
-import { createList } from './createList';
+import List from '../List';
 import styles from './TodoList.module.scss';
 const { block, wrapper, input, btn, ul } = styles;
 
 const TodoList = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const createList = (taskList) =>
+    taskList.map((data) => <List {...data} dispatch={dispatch} />);
+
   return (
     <div className={block}>
       <div className={wrapper}>
@@ -21,7 +24,7 @@ const TodoList = () => {
         </button>
       </div>
       {!!state.taskList.length && (
-        <ul className={ul}>{createList(state.taskList, dispatch)}</ul>
+        <ul className={ul}>{createList(state.taskList)}</ul>
       )}
     </div>
   );

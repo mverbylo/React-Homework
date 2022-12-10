@@ -25,11 +25,10 @@ export function reducer(state, action) {
     case CHECK_TASK:
       return {
         ...state,
-        taskList: state.taskList.map((taskItem) =>
-          taskItem.id === action.payload
-            ? { ...taskItem, isChecked: true }
-            : { ...taskItem }
-        ),
+        taskList: state.taskList.map((taskItem) => ({
+          ...taskItem,
+          isChecked: taskItem.id === action.payload ? true : taskItem.isChecked,
+        })),
       };
     default:
       return state;

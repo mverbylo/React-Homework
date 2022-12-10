@@ -27,23 +27,4 @@
 .ul {
   margin-top: 20px;
 }
-.li {
-  background-color: $light-accent-color;
-  @extend %list;
-}
-.check {
-  background-color: $check-color;
-  @extend %list;
-}
-.taskText {
-  width: 80%;
-}
-.iconWrapper {
-  @extend %borderRadius-padding;
-  background-color: $accent-color;
-  color: $white-color;
-  font-size: 25px;
-  :hover {
-    color: $hover-accent-color;
-  }
-}
+
