@@ -1,4 +1,3 @@
-import { v4 } from 'uuid';
 import { Field } from 'formik';
 const RadioBtn = ({
   value,
@@ -10,7 +9,7 @@ const RadioBtn = ({
   positionAbsolute,
 }) => {
   return (
-    <label key={v4()} className={label}>
+    <label className={label}>
       <Field
         className={positionAbsolute}
         type="radio"

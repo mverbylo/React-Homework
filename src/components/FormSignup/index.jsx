@@ -1,14 +1,14 @@
 import { Formik, Form, Field } from 'formik';
 import {
-  createInput,
-  createRadioBtn,
+  createInputs,
+  createRadioBtns,
   inputDataSignUp,
   radioBtnData,
   signup,
 } from '../../utils/functions';
 import Btn from '../Btn';
 import styles from './FormSignup.module.scss';
-import { initialStateSignUp } from '../../utils/initialState';
+import { initialStateSignUp } from '../../utils/initialStates';
 import { SIGNUP_SCHEMA } from '../../utils/validators';
 const {
   form,
@@ -32,9 +32,9 @@ const FormSignup = () => {
       validationSchema={SIGNUP_SCHEMA}
     >
       <Form className={form}>
-        {createInput(inputDataSignUp(), input, error)}
+        {createInputs(inputDataSignUp(), input, error)}
         <div className={wrapper}>
-          {createRadioBtn(
+          {createRadioBtns(
             radioBtnData(),
             label,
             bigText,

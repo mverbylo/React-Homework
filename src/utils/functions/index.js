@@ -1,9 +1,9 @@
-export { createInput, createRadioBtn } from './createElement';
+export { createInputs, createRadioBtns } from './createElements';
 
 export {
   inputDataLogin,
   inputDataSignUp,
   radioBtnData,
-} from './createInputData';
+} from './createInputsData';
 
-export { login, signup } from './getMessage';
+export { login, signup } from './getMessages';

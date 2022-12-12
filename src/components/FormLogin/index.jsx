@@ -2,16 +2,16 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import { LOGIN_SCHEMA } from '../../utils/validators';
-import { login, createInput, inputDataLogin } from '../../utils/functions';
+import { login, createInputs, inputDataLogin } from '../../utils/functions';
 import Btn from '../Btn';
-import { initialStateLogin } from '../../utils/initialState';
-import styles from './FromLogin.module.scss';
+import { initialStateLogin } from '../../utils/initialStates';
+import styles from './FormLogin.module.scss';
 const { form, input, wrapper, error } = styles;
 
-const FromLogin = () => {
+const FormLogin = () => {
   const [type, setType] = useState('password');
   const showHighPassword = () =>
-    type === 'password' ? setType('text') : setType('password');
+    setType(type === 'password' ? 'text' : 'password');
   return (
     <Formik
       initialValues={initialStateLogin}
@@ -22,7 +22,7 @@ const FromLogin = () => {
       validationSchema={LOGIN_SCHEMA}
     >
       <Form className={form}>
-        {createInput(inputDataLogin(type), input, error)}
+        {createInputs(inputDataLogin(type), input, error)}
         <div className={wrapper}>
           <label>
             <Field type="checkbox" name="isRememberMe" />
@@ -39,4 +39,4 @@ const FromLogin = () => {
   );
 };
 
-export default FromLogin;
+export default FormLogin;
