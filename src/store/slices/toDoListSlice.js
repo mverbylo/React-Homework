@@ -11,10 +11,7 @@ const toDoListSlice = createSlice({
     },
     addTask: (state, action) => {
       state.task = '';
-      state.taskList = [
-        ...state.taskList,
-        { id: v4(), text: action.payload, isChecked: false },
-      ];
+      state.taskList.push({id: v4(), text: action.payload, isChecked: false });
     },
     deleteTask: (state, action) => {
       state.taskList = state.taskList.filter(({ id }) => id !== action.payload);
