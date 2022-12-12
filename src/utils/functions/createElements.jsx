@@ -2,9 +2,15 @@ import { v4 } from 'uuid';
 import Input from '../../components/Input';
 import RadioBtn from '../../components/RadioBtn';
 
-export const createInputs = (data, input, error) =>
+export const createInputs = (data, wrapperInput, input, error) =>
   data.map((data) => (
-    <Input key={v4()} data={data} input={input} error={error} />
+    <Input
+      key={v4()}
+      data={data}
+      wrapperInput={wrapperInput}
+      input={input}
+      error={error}
+    />
   ));
 
 export const createRadioBtns = (

@@ -6,7 +6,7 @@ import { login, createInputs, inputDataLogin } from '../../utils/functions';
 import Btn from '../Btn';
 import { initialStateLogin } from '../../utils/initialStates';
 import styles from './FormLogin.module.scss';
-const { form, input, wrapper, error } = styles;
+const { form, input, wrapperInputs, wrapperInput, wrapper, error, btn } = styles;
 
 const FormLogin = () => {
   const [type, setType] = useState('password');
@@ -22,7 +22,9 @@ const FormLogin = () => {
       validationSchema={LOGIN_SCHEMA}
     >
       <Form className={form}>
-        {createInputs(inputDataLogin(type), input, error)}
+        <div className={wrapperInputs}>
+        {createInputs(inputDataLogin(type), wrapperInput, input, error)}
+        </div>
         <div className={wrapper}>
           <label>
             <Field type="checkbox" name="isRememberMe" />
@@ -33,7 +35,7 @@ const FormLogin = () => {
           </button>
           <Link to="/">Forgot Password</Link>
         </div>
-        <Btn content="LOGIN" />
+        <Btn content="LOGIN" btn={btn} />
       </Form>
     </Formik>
   );

@@ -1,7 +1,6 @@
-import styles from './Btn.module.scss';
-const Btn = ({ content }) => {
+const Btn = ({ content,  btn}) => {
   return (
-    <button className={styles.btn} type="submit">
+    <button className={btn} type="submit">
       {content}
     </button>
   );

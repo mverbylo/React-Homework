@@ -16,9 +16,12 @@ const {
   wrapper,
   error,
   label,
+  wrapperInputs,
+  wrapperInput,
   bigText,
   smText,
   positionAbsolute,
+  btn,
 } = styles;
 
 const FormSignup = () => {
@@ -32,7 +35,9 @@ const FormSignup = () => {
       validationSchema={SIGNUP_SCHEMA}
     >
       <Form className={form}>
-        {createInputs(inputDataSignUp(), input, error)}
+        <div className={wrapperInputs}>
+          {createInputs(inputDataSignUp(), wrapperInput, input, error)}
+        </div>
         <div className={wrapper}>
           {createRadioBtns(
             radioBtnData(),
@@ -47,7 +52,7 @@ const FormSignup = () => {
             time
           </label>
         </div>
-        <Btn content="Create account" />
+        <Btn content="Create account" btn={btn} />
       </Form>
     </Formik>
   );
