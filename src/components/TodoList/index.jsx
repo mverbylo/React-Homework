@@ -1,31 +1,52 @@
-import { useReducer } from 'react';
-import { reducer, initialState } from './reducer';
-import { onChange, addTask } from './actionCreators';
+import { bindActionCreators } from '@reduxjs/toolkit';
+import { useSelector, useDispatch } from 'react-redux';
+import { v4 } from 'uuid';
+import * as toDoListActionCreators from '../../store/slices/toDoListSlice';
+import * as yup from 'yup';
+
 import List from '../List';
 import styles from './TodoList.module.scss';
 const { block, wrapper, input, btn, ul } = styles;
-
+const schema = yup.string().min(3);
 const TodoList = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const { task, taskList } = useSelector((state) => state.toDoList);
+
+  const { onChange, addTask, deleteTask, checkTask } = bindActionCreators(
+    { ...toDoListActionCreators },
+    useDispatch()
+  );
   const createList = (taskList) =>
-    taskList.map((data) => <List {...data} dispatch={dispatch} />);
+    taskList.map((data) => (
+      <List
+        key={v4()}
+        {...data}
+        deleteTask={deleteTask}
+        checkTask={checkTask}
+      />
+    ));
 
   return (
     <div className={block}>
       <div className={wrapper}>
         <input
           type="text"
-          value={state.task}
           className={input}
-          onChange={({ target: { value } }) => dispatch(onChange(value))}
+          onChange={(e) => onChange(e.target.value)}
         />
-        <button className={btn} onClick={() => dispatch(addTask(state.task))}>
+        <button
+          className={btn}
+          type="submit"
+          onClick={() => {
+            if (schema.isValidSync(task)) {
+              addTask(task);
+            }
+          }}
+        >
           Add
         </button>
       </div>
-      {!!state.taskList.length && (
-        <ul className={ul}>{createList(state.taskList)}</ul>
-      )}
+
+      {!!taskList.length && <ul className={ul}>{createList(taskList)}</ul>}
     </div>
   );
 };

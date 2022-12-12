@@ -1,19 +1,18 @@
 import { BsTrash, BsCheck } from 'react-icons/bs';
-import { checkTask, deleteTask } from '../TodoList/actionCreators';
 import styles from './List.module.scss';
 const { li, taskText, iconWrapper, check } = styles;
 
-const List = ({ id, text, isChecked, dispatch }) => {
+const List = ({ id, text, isChecked, deleteTask, checkTask }) => {
   return (
-    <li key={id} id={id} className={isChecked ? check : li}>
+    <li id={id} className={isChecked ? check : li}>
       <span className={taskText} children={text} />
       <span
         className={iconWrapper}
-        children={<BsCheck onClick={() => dispatch(checkTask(id))} />}
+        children={<BsCheck onClick={() => checkTask(id)} />}
       />
       <span
         className={iconWrapper}
-        children={<BsTrash onClick={() => dispatch(deleteTask(id))} />}
+        children={<BsTrash onClick={() => deleteTask(id)} />}
       />
     </li>
   );
