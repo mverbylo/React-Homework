@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { v4 } from 'uuid';
-export const initialState = { task: '', taskList: [] };
+const initialState = { task: '', taskList: [] };
 
 const toDoListSlice = createSlice({
   name: 'toDoList',
   initialState,
   reducers: {
     onChange: (state, action) => {
-      state.task = action.payload.trim();
+      state.task = action.payload;
     },
     addTask: (state, action) => {
       state.task = '';

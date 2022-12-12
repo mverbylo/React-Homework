@@ -12,11 +12,15 @@
   height: 50px;
 }
 .input {
-  @extend %borderRadius-padding;
+  @extend %input;
   border: 2px $accent-color solid;
-  height: 100%;
-  width: 80%;
 }
+
+.notValidInput {
+  @extend %input;
+  border: 2px red solid;
+}
+
 .btn {
   @extend %borderRadius-padding;
   background-color: $accent-color;
@@ -27,4 +31,3 @@
 .ul {
   margin-top: 20px;
 }
-
