@@ -28,7 +28,6 @@ const CreateTaskForm = () => {
         validationSchema={ADD_TASK_SCHEMA}
       >
         <Form className={form}>
-          
           <Field
             name="text"
             placeholder="Add task. Task must me 3 symbol or more letters only"

@@ -12,7 +12,6 @@ const createTask = createAsyncThunk(
       } = await API.createTask(taskData);
       return task;
     } catch (error) {
-      console.log(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
