@@ -1,5 +1,6 @@
-@import '../../common/styles/styles.scss';
-.li {
+@import '/src/common/styles/styles.scss';
+
+.article {
   background-color: $light-accent-color;
   @extend %list;
 }
@@ -15,7 +16,7 @@
     color: $hover-accent-color;
   }
 }
-.check {
+.articleCheck {
   background-color: $check-color;
   @extend %list;
 }

@@ -1,9 +1,7 @@
-import './App.css';
-import List from './components/List';
-// import TodoList from './components/TodoList';
 import './reset.css';
+import ToDo from './components/ToDo';
 function App() {
-  return <List />;
+  return <ToDo />;
 }
 
 export default App;

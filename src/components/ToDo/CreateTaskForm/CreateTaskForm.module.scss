@@ -1,0 +1,24 @@
+@import '/src/common/styles/styles.scss';
+.form {
+  @extend %space-between;
+}
+.input {
+  @extend %input;
+  border: 2px $accent-color solid;
+}
+.errorMessage {
+  @extend %input;
+  margin-top: 10px;
+  width: 100%;
+  background-color: red;
+  color: yellow;
+  text-align: center;
+  font-weight: bold;
+}
+.btn {
+  @extend %borderRadius-padding;
+  background-color: $accent-color;
+  color: $white-color;
+  text-align: center;
+  height: 100%;
+}

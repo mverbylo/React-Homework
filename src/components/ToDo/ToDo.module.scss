@@ -1,0 +1,15 @@
+@import '/src/common/styles/styles.scss';
+.todoListSection {
+  @extend %borderRadius-padding;
+  width: 700px;
+  background-color: $white-color;
+  margin: 50px auto;
+  font-size: 20px;
+  font-family: sans-serif;
+}
+.heading{
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  margin: 20px;
+}
