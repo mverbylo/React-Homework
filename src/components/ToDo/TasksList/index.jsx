@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { getTasks } from '../../../store/slices/getTasksSlice';
 import { BsTrash, BsFillPencilFill } from 'react-icons/bs';
+import { getTasks } from '../../../store/slices/getTasksSlice';
 import { deleteTask } from '../../../store/slices/deleteTaskSlice';
 import styles from './TasksList.module.scss';
 const { article, articleCheck, taskText, iconWrapper } = styles;

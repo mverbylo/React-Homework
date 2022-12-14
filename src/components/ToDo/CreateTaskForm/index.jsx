@@ -1,12 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Form, Formik, Field, ErrorMessage } from 'formik';
-import * as yup from 'yup';
 import { createTask } from '../../../store/slices/createTaskSlice';
+import { ADD_TASK_SCHEMA } from '../../../utils/validators/index';
 import styles from './CreateTaskForm.module.scss';
 const { form, input, btn, errorMessage } = styles;
-export const ADD_TASK_SCHEMA = yup.object({
-  text: yup.string().trim().min(3),
-});
+
 const initialValues = {
   text: '',
 };
