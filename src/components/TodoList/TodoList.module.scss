@@ -1,0 +1,33 @@
+@import '../../common/styles/styles.scss';
+.block {
+  @extend %borderRadius-padding;
+  width: 700px;
+  background-color: $white-color;
+  margin: 50px auto;
+  font-size: 20px;
+  font-family: sans-serif;
+}
+.wrapper {
+  @extend %space-between;
+  height: 50px;
+}
+.input {
+  @extend %input;
+  border: 2px $accent-color solid;
+}
+
+.notValidInput {
+  @extend %input;
+  border: 2px red solid;
+}
+
+.btn {
+  @extend %borderRadius-padding;
+  background-color: $accent-color;
+  color: $white-color;
+  text-align: center;
+  height: 100%;
+}
+.ul {
+  margin-top: 20px;
+}
