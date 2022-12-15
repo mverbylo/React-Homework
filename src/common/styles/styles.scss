@@ -3,7 +3,8 @@ $accent-color: dodgerblue;
 $light-accent-color: lightblue;
 $check-color: lawngreen;
 $hover-accent-color: blue;
-
+$error-accent-color: red;
+$error-color: yellow;
 %borderRadius-padding {
   border-radius: 5px;
   padding: 10px;
@@ -13,7 +14,6 @@ $hover-accent-color: blue;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
 %list {
   @extend %borderRadius-padding;
   @extend %space-between;
@@ -24,4 +24,13 @@ $hover-accent-color: blue;
   @extend %borderRadius-padding;
   height: 100%;
   width: 90%;
+}
+%error {
+  @extend %input;
+  margin-top: 10px;
+  width: 100%;
+  background-color: $error-accent-color;
+  color: $error-color;
+  text-align: center;
+  font-weight: bold;
 }

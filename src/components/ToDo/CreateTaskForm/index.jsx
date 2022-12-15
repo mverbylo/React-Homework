@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Form, Formik, Field, ErrorMessage } from 'formik';
 import { createTask } from '../../../store/slices/createTaskSlice';
 import { ADD_TASK_SCHEMA } from '../../../utils/validators/index';
+import IsLoadingError from 'components/ToDo/IsLoadingError';
 import styles from './CreateTaskForm.module.scss';
 const { form, input, btn, errorMessage } = styles;
 
@@ -18,8 +19,7 @@ const CreateTaskForm = () => {
 
   return (
     <>
-      {isLoading && <div>Loading</div>}
-      {error && <div>{error}</div>}
+      <IsLoadingError error={error} isLoading={isLoading} />
       <Formik
         initialValues={initialValues}
         onSubmit={submitHandler}

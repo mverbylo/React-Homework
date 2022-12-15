@@ -1,8 +1,8 @@
 @import '/src/common/styles/styles.scss';
 
 .article {
-  background-color: $light-accent-color;
   @extend %list;
+  background-color: $light-accent-color;
 }
 .taskText {
   width: 80%;
@@ -17,6 +17,6 @@
   }
 }
 .articleCheck {
-  background-color: $check-color;
   @extend %list;
+  background-color: $check-color;
 }

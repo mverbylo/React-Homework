@@ -20,3 +20,6 @@
   height: 100%;
   border: 2px solid $white-color;
 }
+.errorMessage {
+  @extend %error;
+}

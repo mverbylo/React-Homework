@@ -2,8 +2,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { getTasks } from '../../../store/slices/getTasksSlice';
-import Task from '../Task';
-import ChangeTask from '../ChangeTask';
+import Task from './Task';
+import ChangeTask from './ChangeTask';
+import IsLoadingError from 'components/ToDo/IsLoadingError';
 
 const TasksList = () => {
   const { tasks, isLoading, error } = useSelector((state) => state.getTasks);
@@ -18,8 +19,7 @@ const TasksList = () => {
 
   return (
     <section>
-      {isLoading && <div>Loading</div>}
-      {error && <div>{error}</div>}
+      <IsLoadingError error={error} isLoading={isLoading} />
       {!!tasks.length &&
         tasks.map((task) =>
           task.id === idUpdateTask ? (
