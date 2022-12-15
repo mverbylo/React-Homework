@@ -1,35 +1,42 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { BsTrash, BsFillPencilFill } from 'react-icons/bs';
+import { useState } from 'react';
 import { getTasks } from '../../../store/slices/getTasksSlice';
-import { deleteTask } from '../../../store/slices/deleteTaskSlice';
-import styles from './TasksList.module.scss';
-const { article, articleCheck, taskText, iconWrapper } = styles;
+import Task from '../Task';
+import ChangeTask from '../ChangeTask';
 
 const TasksList = () => {
   const { tasks, isLoading, error } = useSelector((state) => state.getTasks);
   const { task } = useSelector((state) => state.createTask);
   const { data } = useSelector((state) => state.deleteTask);
+  const { updateTask } = useSelector((state) => state.updateTask);
+  const [idUpdateTask, setIdUpdateTask] = useState(null);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getTasks());
-  }, [task, data]);
+  }, [task, data, idUpdateTask, updateTask]);
 
   return (
     <section>
       {isLoading && <div>Loading</div>}
       {error && <div>{error}</div>}
       {!!tasks.length &&
-        tasks.map(({ id, text, isDone }) => (
-          <article key={id} className={isDone ? articleCheck : article}>
-            <h1 className={taskText} children={text} />
-            <div className={iconWrapper} children={<BsFillPencilFill />} />
-            <div
-              className={iconWrapper}
-              children={<BsTrash onClick={() => dispatch(deleteTask(id))} />}
+        tasks.map((task) =>
+          task.id === idUpdateTask ? (
+            <ChangeTask
+              key={task.id}
+              {...task}
+              setIdUpdateTask={() => setIdUpdateTask(null)}
             />
-          </article>
-        ))}
+          ) : (
+            <Task
+              key={task.id}
+              id={idUpdateTask}
+              setIdUpdateTask={() => setIdUpdateTask(task.id)}
+              {...task}
+            />
+          )
+        )}
     </section>
   );
 };

@@ -9,5 +9,5 @@ export const createTask = async (taskData) =>
 export const deleteTask = async (id) =>
   axios.delete(`http://localhost:5000/api/tasks/${id}`);
 
-export const updateTask = async (id) =>
-  axios.put(`http://localhost:5000/api/tasks/${id}`);
+export const updateTask = async (taskData) =>
+  axios.put(`http://localhost:5000/api/tasks/${taskData.id}`, taskData);

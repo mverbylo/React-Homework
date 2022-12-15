@@ -1,0 +1,22 @@
+@import '/src/common/styles/styles.scss';
+
+.form {
+  background-color: $accent-color;
+  @extend %list;
+}
+.input {
+  @extend %input;
+  border: 2px $white-color solid;
+  width: 70%;
+}
+.checkbox {
+  color: $white-color;
+}
+.btn {
+  @extend %borderRadius-padding;
+  background-color: $accent-color;
+  color: $white-color;
+  text-align: center;
+  height: 100%;
+  border: 2px solid $white-color;
+}
